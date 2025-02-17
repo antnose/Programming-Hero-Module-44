@@ -2,9 +2,11 @@ import axios from "axios";
 import { XAxis, YAxis } from "recharts";
 import { useEffect, useState } from "react";
 import { BarChart, Bar } from "recharts";
+import { FallingLines } from "react-loader-spinner";
 
 const Phones = () => {
   const [phones, setPhones] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     //   fetch("https://openapi.programming-hero.com/api/phones?search=iphone")
@@ -22,10 +24,20 @@ const Phones = () => {
           return obj;
         });
         setPhones(phonesWithFakeData);
+        setLoading(false);
       });
   }, []);
   return (
-    <>
+    <div>
+      {loading && (
+        <FallingLines
+          color="#4fa94d"
+          width="100"
+          visible={true}
+          ariaLabel="falling-circles-loading"
+        />
+      )}
+
       <h2 className="text-5xl"> Phones:{phones.length}</h2>
       <marquee>
         <BarChart width={2500} height={400} data={phones}>
@@ -34,7 +46,7 @@ const Phones = () => {
           <Bar dataKey="price" fill="#8884d8" />
         </BarChart>
       </marquee>
-    </>
+    </div>
   );
 };
 
