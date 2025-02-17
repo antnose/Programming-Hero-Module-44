@@ -1,9 +1,12 @@
 import "./App.css";
+import Navbar from "./Components/Navbar/Navbar";
+import CustomNav from "./Components/CustomNav/CustomNav";
 
 function App() {
   return (
     <>
-      <h1 className="text-5xl justify-center">This is APP JSX</h1>
+      {/* <Navbar /> */}
+      <CustomNav />
     </>
   );
 }
