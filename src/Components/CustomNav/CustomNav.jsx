@@ -16,11 +16,15 @@ const CustomNav = () => {
   ];
 
   return (
-    <nav>
+    <nav className="text-black bg-yellow-200 p-6 ">
       <div onClick={() => setOpen(!open)} className="md:hidden">
         {open ? <IoMdClose /> : <TiThMenuOutline />}
       </div>
-      <ul className="md:flex gap-4">
+      <ul
+        className={`md:flex duration-1000 gap-4 absolute bg-yellow-200 px-6 ${
+          open ? "top-16" : "-top-60 md:static"
+        } `}
+      >
         {routes.map((route) => (
           <Link route={route} key={route.id} />
         ))}
