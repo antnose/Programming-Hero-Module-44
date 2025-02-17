@@ -5,8 +5,8 @@ import CustomNav from "./Components/CustomNav/CustomNav";
 function App() {
   return (
     <>
-      {/* <Navbar /> */}
       <CustomNav />
+      <Navbar />
     </>
   );
 }
